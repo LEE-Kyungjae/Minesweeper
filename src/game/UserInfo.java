@@ -12,13 +12,13 @@ public class UserInfo implements Serializable{
 	private String pw;
 	private String email;
 	private boolean gender;
-	int win;//ÃßÈÄ »ç¿ëÇÒ ÀüÀû
+	int win;//ì¶”í›„ ì‚¬ìš©í•  ì „ì 
 	
-	public UserInfo() {//µ¥ÀÌÅÍ ·Îµå½Ã °¡Á®¿Ã »ı¼ºÀÚ
+	public UserInfo() {//ë°ì´í„° ë¡œë“œì‹œ ê°€ì ¸ì˜¬ ìƒì„±ì
 		
 	}
 	
-	public UserInfo(String id, String name, String pw, String email) {//°èÁ¤ »ı¼º½Ã »ç¿ëÇÒ »ı¼ºÀÚ
+	public UserInfo(String id, String name, String pw, String email) {//ê³„ì • ìƒì„±ì‹œ ì‚¬ìš©í•  ìƒì„±ì
 		this.id = id;
 		this.name = name;
 		this.pw = pw;
@@ -42,7 +42,7 @@ public class UserInfo implements Serializable{
 	}
 
 	@Override
-	public String toString() {//¹®ÀÚ¿­·Î ÀüÈ¯ÀÌ ÇÊ¿äÇÒ °æ¿ì »ç¿ë
+	public String toString() {//ë¬¸ìì—´ë¡œ ì „í™˜ì´ í•„ìš”í•  ê²½ìš° ì‚¬ìš©
 		return "User{" + "id=" + id + ", pw='" + pw + '\'' + ", name='" + name + '\'' + ", email='" + email + '}';
 	}
 
