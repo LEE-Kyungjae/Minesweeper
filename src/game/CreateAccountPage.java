@@ -14,65 +14,65 @@ import java.io.File;
 
 public class CreateAccountPage extends LoginPage{
 	
-	public boolean checked = false; // idÁßº¹À» È®ÀÎÇØ¾ß »ı¼º°¡´É
+	public boolean checked = false; // idì¤‘ë³µì„ í™•ì¸í•´ì•¼ ìƒì„±ê°€ëŠ¥
 	
 	public void open() {
 		
 	
 		
-		//È­¸é Æ²
+		//í™”ë©´ í‹€
 		this.setBounds(720, 300, 480, 600);
 		this.setTitle("CreateAccount");
 		this.setLayout(null);
 		Font font = new Font("",0,20);
 		
-		//ÅØ½ºÆ® ¶óº§
-		Label l_name = new Label("ÀÌ¸§");
+		//í…ìŠ¤íŠ¸ ë¼ë²¨
+		Label l_name = new Label("ì´ë¦„");
 		l_name.setBounds(20, 200, 80, 30);
 		
-		Label l_id = new Label("¾ÆÀÌµğ");
+		Label l_id = new Label("ì•„ì´ë””");
 		l_id.setBounds(20, 250, 80, 30);
 		
-		Label l_pw = new Label("ºñ¹Ğ¹øÈ£");
+		Label l_pw = new Label("ë¹„ë°€ë²ˆí˜¸");
 		l_pw.setBounds(20, 300, 80, 30);
 		
-		Label l_email = new Label("ÀÌ¸ŞÀÏ");
+		Label l_email = new Label("ì´ë©”ì¼");
 		l_email.setBounds(20, 350, 80, 30);
 		
-		//ÀÌ¸§ ¿µ¿ª
+		//ì´ë¦„ ì˜ì—­
 		TextField tf_name = new TextField();
 		tf_name.setBounds(100, 200, 150, 30);
 		tf_name.setFont(font);
 		this.add(tf_name);
 		this.add(l_name);
 		
-		//id ¿µ¿ª
+		//id ì˜ì—­
 		TextField tf_id = new TextField();
 		tf_id.setBounds(100, 250, 150, 30);
 		tf_id.setFont(font);
 		this.add(tf_id);
 		this.add(l_id);
 		
-		//pw ¿µ¿ª
+		//pw ì˜ì—­
 		TextField tf_pw = new TextField();
 		tf_pw.setBounds(100, 300, 150, 30);
 		tf_pw.setFont(font);
 		this.add(tf_pw);
 		this.add(l_pw);
 		
-		//ÀÌ¸ŞÀÏ ¿µ¿ª
+		//ì´ë©”ì¼ ì˜ì—­
 		TextField tf_email = new TextField();
 		tf_email.setBounds(100, 350, 150, 30);
 		tf_email.setFont(font);
 		this.add(tf_email);
 		this.add(l_email);
 		
-		//°èÁ¤ »ı¼º ¿Ï·á ¸ğ´Ş
+		//ê³„ì • ìƒì„± ì™„ë£Œ ëª¨ë‹¬
 		Dialog di = new Dialog(this,"Info", true);
 		di.setBounds(835, 525, 250, 150);
 		di.setLayout(new FlowLayout());
-		Label msg = new Label("°èÁ¤ »ı¼º ¿Ï·á", Label.CENTER);
-		Button ok = new Button("È®ÀÎ");
+		Label msg = new Label("ê³„ì • ìƒì„± ì™„ë£Œ", Label.CENTER);
+		Button ok = new Button("í™•ì¸");
 	
 		ok.addActionListener(new ActionListener() {
 			@Override
@@ -84,30 +84,30 @@ public class CreateAccountPage extends LoginPage{
 		di.add(msg);
 		di.add(ok);
 		
-		//¾ÆÀÌµğ Áßº¹ ¸ğ´Ş
+		//ì•„ì´ë”” ì¤‘ë³µ ëª¨ë‹¬
 		Dialog di2 = new Dialog(this,"Info", true);
 		di2.setBounds(835, 525, 250, 150);
 		di2.setLayout(new FlowLayout());
-		Label msg2 = new Label("ÀÌ¹Ì Á¸ÀçÇÏ´Â ¾ÆÀÌµğ ÀÔ´Ï´Ù.", Label.CENTER);
-		Button ok2 = new Button("È®ÀÎ");
+		Label msg2 = new Label("ì´ë¯¸ ì¡´ì¬í•˜ëŠ” ì•„ì´ë”” ì…ë‹ˆë‹¤.", Label.CENTER);
+		Button ok2 = new Button("í™•ì¸");
 	
 		ok2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				di2.dispose();
-				tf_id.setText("");//¸ğ´ŞÃ¢¿¡¼­ È®ÀÎÅ° ´©¸£¸é idÇÊµå°¡ ´Ù Áö¿öÁü
+				tf_id.setText("");//ëª¨ë‹¬ì°½ì—ì„œ í™•ì¸í‚¤ ëˆ„ë¥´ë©´ idí•„ë“œê°€ ë‹¤ ì§€ì›Œì§
 				
 			}
 		});
 		di2.add(msg2);
 		di2.add(ok2);
 		
-		//¾ÆÀÌµğ »ç¿ë °¡´É ¸ğ´Ş
+		//ì•„ì´ë”” ì‚¬ìš© ê°€ëŠ¥ ëª¨ë‹¬
 		Dialog di3 = new Dialog(this,"Info", true);
 		di3.setBounds(835, 525, 250, 150);
 		di3.setLayout(new FlowLayout());
-		Label msg3 = new Label("»ç¿ë °¡´ÉÇÑ ¾ÆÀÌµğ ÀÔ´Ï´Ù.", Label.CENTER);
-		Button ok3 = new Button("È®ÀÎ");
+		Label msg3 = new Label("ì‚¬ìš© ê°€ëŠ¥í•œ ì•„ì´ë”” ì…ë‹ˆë‹¤.", Label.CENTER);
+		Button ok3 = new Button("í™•ì¸");
 	
 		ok3.addActionListener(new ActionListener() {
 			@Override
@@ -121,12 +121,12 @@ public class CreateAccountPage extends LoginPage{
 		di3.add(msg3);
 		di3.add(ok3);
 		
-		//°ø¹é °æ°í ¸ğ´Ş
+		//ê³µë°± ê²½ê³  ëª¨ë‹¬
 		Dialog di4 = new Dialog(this,"Info", true);
 		di4.setBounds(835, 525, 250, 150);
 		di4.setLayout(new FlowLayout());
-		Label msg4 = new Label("ºñ¾îÀÖ´Â Ç×¸ñÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä", Label.CENTER);
-		Button ok4 = new Button("È®ÀÎ");
+		Label msg4 = new Label("ë¹„ì–´ìˆëŠ” í•­ëª©ì„ ì…ë ¥í•´ì£¼ì„¸ìš”", Label.CENTER);
+		Button ok4 = new Button("í™•ì¸");
 	
 		ok4.addActionListener(new ActionListener() {
 			@Override
@@ -138,12 +138,12 @@ public class CreateAccountPage extends LoginPage{
 		di4.add(msg4);
 		di4.add(ok4);
 		
-		//idÁßº¹Ã¼Å© ÇÊ¿ä ¸ğ´Ş
+		//idì¤‘ë³µì²´í¬ í•„ìš” ëª¨ë‹¬
 		Dialog di5 = new Dialog(this,"Info", true);
 		di5.setBounds(835, 525, 250, 150);
 		di5.setLayout(new FlowLayout());
-		Label msg5 = new Label("¾ÆÀÌµğ Áßº¹È®ÀÎÀ» ÇØÁÖ¼¼¿ä", Label.CENTER);
-		Button ok5 = new Button("È®ÀÎ");
+		Label msg5 = new Label("ì•„ì´ë”” ì¤‘ë³µí™•ì¸ì„ í•´ì£¼ì„¸ìš”", Label.CENTER);
+		Button ok5 = new Button("í™•ì¸");
 	
 		ok5.addActionListener(new ActionListener() {
 			@Override
@@ -155,23 +155,23 @@ public class CreateAccountPage extends LoginPage{
 		di5.add(msg5);
 		di5.add(ok5);
 		
-		//idÁßº¹ È®ÀÎ ¹öÆ°
-		Button check_btn = new Button("Áßº¹È®ÀÎ");
+		//idì¤‘ë³µ í™•ì¸ ë²„íŠ¼
+		Button check_btn = new Button("ì¤‘ë³µí™•ì¸");
 		check_btn.setBounds(270, 250, 60, 30);
 		
 		check_btn.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//Áßº¹È®ÀÎ ¹öÆ° Å¬¸¯½Ã ÁøÇàµÉ ÀÌº¥Æ®
-				//°ø¹éÃ¼Å©
+				//ì¤‘ë³µí™•ì¸ ë²„íŠ¼ í´ë¦­ì‹œ ì§„í–‰ë  ì´ë²¤íŠ¸
+				//ê³µë°±ì²´í¬
 				if(tf_id.getText().trim().equals("")) {
 					di4.setVisible(true);
 					return;
 				}
-				//id Áßº¹Ã¼Å©
+				//id ì¤‘ë³µì²´í¬
 				if(new File((System.getProperty("user.dir")+ "/user/" + tf_id.getText() + ".sav").replace("\\", "/")).exists()) {
-					di2.setVisible(true);//ÀÌ¹Ì Á¸ÀçÇÏ´Â ¾ÆÀÌµğ
+					di2.setVisible(true);//ì´ë¯¸ ì¡´ì¬í•˜ëŠ” ì•„ì´ë””
 				}else {
 					di3.setVisible(true);
 					
@@ -180,8 +180,8 @@ public class CreateAccountPage extends LoginPage{
 		});
 		this.add(check_btn);
 		
-		//¿Ï·á ¹öÆ°
-		Button fin_btn = new Button("¿Ï·á");
+		//ì™„ë£Œ ë²„íŠ¼
+		Button fin_btn = new Button("ì™„ë£Œ");
 		fin_btn.setBounds(100, 400, 90, 30);
 		
 		fin_btn.addActionListener(new ActionListener() {
@@ -190,13 +190,13 @@ public class CreateAccountPage extends LoginPage{
 			public void actionPerformed(ActionEvent e) {
 				
 				if(tf_id.getText().trim().equals("") || tf_pw.getText().trim().equals("") || tf_name.getText().trim().equals("") || tf_email.getText().trim().equals("")) {
-					di4.setVisible(true);//°ø¹é °æ°í
+					di4.setVisible(true);//ê³µë°± ê²½ê³ 
 					return;
 				}else if(!checked) {
-					di5.setVisible(true);//idÁßº¹Ã¼Å© ÇÊ¿ä ¸ğ´Ş
+					di5.setVisible(true);//idì¤‘ë³µì²´í¬ í•„ìš” ëª¨ë‹¬
 					return;
 				}
-				//¿Ï·á ¹öÆ° Å¬¸¯½Ã ÁøÇàµÉ ÀÌº¥Æ®
+				//ì™„ë£Œ ë²„íŠ¼ í´ë¦­ì‹œ ì§„í–‰ë  ì´ë²¤íŠ¸
 				new Save().save(tf_id.getText(), tf_pw.getText(), tf_name.getText(), tf_email.getText());
 				di.setVisible(true);
 				dispose();
@@ -204,7 +204,7 @@ public class CreateAccountPage extends LoginPage{
 		});
 		this.add(fin_btn);
 		
-		//´İ±â¹öÆ°
+		//ë‹«ê¸°ë²„íŠ¼
 		this.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {

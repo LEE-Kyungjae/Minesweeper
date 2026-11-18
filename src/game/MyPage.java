@@ -37,7 +37,7 @@ public class MyPage extends Frame {
   Button ok2;
   Button fin_btn;
   private String verifier;
-  private String[] loginInfo;// ·Î±×ÀÎ¼º°ø¿©ºÎ ,ÆĞ½º¿öµå,ÀÌ¸§, ¾ÆÀÌµğ,ÀÌ¸ŞÀÏ
+  private String[] loginInfo;// ë¡œê·¸ì¸ì„±ê³µì—¬ë¶€ ,íŒ¨ìŠ¤ì›Œë“œ,ì´ë¦„, ì•„ì´ë””,ì´ë©”ì¼
 
   public MyPage(String verifier) {
     loginInfo = new String[5];
@@ -46,35 +46,35 @@ public class MyPage extends Frame {
     Token t = new Token();
     loginInfo = t.pull(verifier);
 
-    // È­¸é Æ²
+    // í™”ë©´ í‹€
     this.setBounds(720, 300, 480, 600);
     this.setTitle("MyPage");
     this.setLayout(null);
     font = new Font("", 0, 20);
 
-    // ÅØ½ºÆ® ¶óº§
-    l_name = new Label("ÀÌ¸§ ");
+    // í…ìŠ¤íŠ¸ ë¼ë²¨
+    l_name = new Label("ì´ë¦„ ");
     l_name.setBounds(20, 200, 180, 30);
 
-    l_id = new Label("¾ÆÀÌµğ ");
+    l_id = new Label("ì•„ì´ë”” ");
     l_id.setBounds(20, 250, 50, 30);
 
     l_id2 = new Label(loginInfo[3]);
     l_id2.setBounds(200, 250, 150, 30);
     l_id2.setBackground(Color.DARK_GRAY);
-    l_pw = new Label("ºñ¹Ğ¹øÈ£ ");
+    l_pw = new Label("ë¹„ë°€ë²ˆí˜¸ ");
     l_pw.setBounds(20, 300, 180, 30);
 
-    l_email = new Label("ÀÌ¸ŞÀÏ " + loginInfo[4]);
+    l_email = new Label("ì´ë©”ì¼ " + loginInfo[4]);
     l_email.setBounds(20, 350, 180, 30);
 
-    // ÀÌ¸§ ¿µ¿ª
+    // ì´ë¦„ ì˜ì—­
     tf_name = new HintTextField(loginInfo[2]);
     tf_name.setBounds(200, 200, 150, 30);
     // tf_name.setFont(font);
     this.add(tf_name);
     this.add(l_name);
-    // id Ç¥Ãâ ¿µ¿ª
+    // id í‘œì¶œ ì˜ì—­
     show_id = new Label(id);
     show_id.setBounds(100, 250, 150, 30);
     // show_id.setFont(font);
@@ -82,25 +82,25 @@ public class MyPage extends Frame {
     this.add(l_id);
     this.add(l_id2);
 
-    // pw ¼öÁ¤ ¿µ¿ª
+    // pw ìˆ˜ì • ì˜ì—­
     tf_pw = new HintTextField(loginInfo[1]);
     tf_pw.setBounds(200, 300, 150, 30);
     this.add(tf_pw);
     this.add(l_pw);
 
-    // ÀÌ¸ŞÀÏ ¼öÁ¤ ¿µ¿ª
+    // ì´ë©”ì¼ ìˆ˜ì • ì˜ì—­
     tf_email = new HintTextField(loginInfo[3]);
     tf_email.setBounds(200, 350, 150, 30);
     tf_email.setText(loginInfo[3]);
     this.add(tf_email);
     this.add(l_email);
 
-    // ¼öÁ¤ ¿Ï·á ¸ğ´Ş
+    // ìˆ˜ì • ì™„ë£Œ ëª¨ë‹¬
     di = new Dialog(this, "Info", true);
     di.setBounds(835, 525, 250, 150);
     di.setLayout(new FlowLayout());
-    msg = new Label("¼öÁ¤ ¿Ï·á", Label.CENTER);
-    ok = new Button("È®ÀÎ");
+    msg = new Label("ìˆ˜ì • ì™„ë£Œ", Label.CENTER);
+    ok = new Button("í™•ì¸");
     ok.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
@@ -110,12 +110,12 @@ public class MyPage extends Frame {
     });
     di.add(msg);
     di.add(ok);
-    // °ø¹é °æ°í ¸ğ´Ş
+    // ê³µë°± ê²½ê³  ëª¨ë‹¬
     di2 = new Dialog(this, "Info", true);
     di2.setBounds(835, 525, 250, 150);
     di2.setLayout(new FlowLayout());
-    msg2 = new Label("¸ğµç Ç×¸ñÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä", Label.CENTER);
-    ok2 = new Button("È®ÀÎ");
+    msg2 = new Label("ëª¨ë“  í•­ëª©ì„ ì…ë ¥í•´ì£¼ì„¸ìš”", Label.CENTER);
+    ok2 = new Button("í™•ì¸");
 
     ok2.addActionListener(new ActionListener() {
       @Override
@@ -126,8 +126,8 @@ public class MyPage extends Frame {
     });
     di2.add(msg2);
     di2.add(ok2);
-    // ¿Ï·á ¹öÆ°
-    fin_btn = new Button("¿Ï·á");
+    // ì™„ë£Œ ë²„íŠ¼
+    fin_btn = new Button("ì™„ë£Œ");
     fin_btn.setBounds(100, 400, 90, 30);
 
     fin_btn.addActionListener(new ActionListener() {
@@ -137,10 +137,10 @@ public class MyPage extends Frame {
 
         if (tf_pw.getText().trim().equals("") || tf_name.getText().trim().equals("")
             || tf_email.getText().trim().equals("")) {
-          di2.setVisible(true);// °ø¹é °æ°í
+          di2.setVisible(true);// ê³µë°± ê²½ê³ 
           return;
         }
-        // ¿Ï·á ¹öÆ° Å¬¸¯½Ã ÁøÇàµÉ ÀÌº¥Æ®
+        // ì™„ë£Œ ë²„íŠ¼ í´ë¦­ì‹œ ì§„í–‰ë  ì´ë²¤íŠ¸
         new Save().save(id, tf_pw.getText(), tf_name.getText(), tf_email.getText());
         di.setVisible(true);
         dispose();
@@ -148,7 +148,7 @@ public class MyPage extends Frame {
     });
     this.add(fin_btn);
 
-    // ´İ±â¹öÆ°
+    // ë‹«ê¸°ë²„íŠ¼
     this.addWindowListener(new WindowAdapter() {
       @Override
       public void windowClosing(WindowEvent e) {
