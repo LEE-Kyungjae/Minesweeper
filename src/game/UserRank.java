@@ -11,7 +11,7 @@ public class UserRank implements Serializable{
 	private List<Integer> rec_list = new ArrayList<Integer>();
 	private List<String> id_list = new ArrayList<String>();
 	
-	public UserRank() {//µ¥ÀÌÅÍ ·Îµå½Ã °¡Á®¿Ã »ı¼ºÀÚ
+	public UserRank() {//ë°ì´í„° ë¡œë“œì‹œ ê°€ì ¸ì˜¬ ìƒì„±ì
 		
 	}
 	

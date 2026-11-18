@@ -16,7 +16,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class LoginPage extends Frame {
-  // UserInfo Á¤º¸ ¹ŞÀ» ÂüÁ¶º¯¼ö
+  // UserInfo ì •ë³´ ë°›ì„ ì°¸ì¡°ë³€ìˆ˜
   UserInfo ui;
   Dialog loginOkD;
   Label loginOkL;
@@ -45,12 +45,12 @@ public class LoginPage extends Frame {
 
   public void open() {
 
-    // ·Î±×ÀÎ ¼º°ø ¸ğ´Ş
+    // ë¡œê·¸ì¸ ì„±ê³µ ëª¨ë‹¬
     loginOkD = new Dialog(this, "Info", true);
     loginOkD.setBounds(835, 525, 250, 150);
     loginOkD.setLayout(new FlowLayout());
-    loginOkL = new Label("·Î±×ÀÎ ¼º°ø", Label.CENTER);
-    loginOkbtn = new Button("È®ÀÎ");
+    loginOkL = new Label("ë¡œê·¸ì¸ ì„±ê³µ", Label.CENTER);
+    loginOkbtn = new Button("í™•ì¸");
 
     loginOkbtn.addActionListener(new ActionListener() {
       @Override
@@ -62,12 +62,12 @@ public class LoginPage extends Frame {
     loginOkD.add(loginOkL);
     loginOkD.add(loginOkbtn);
 
-    // id¸¦ È®ÀÎÇÏ¼¼¿ä ¸ğ´Ş
+    // idë¥¼ í™•ì¸í•˜ì„¸ìš” ëª¨ë‹¬
     checkIdD = new Dialog(this, "Info", true);
     checkIdD.setBounds(835, 525, 250, 150);
     checkIdD.setLayout(new FlowLayout());
-    checkIdL = new Label("¾ÆÀÌµğ¸¦ È®ÀÎÇÏ¼¼¿ä", Label.CENTER);
-    checkIdBtn = new Button("È®ÀÎ");
+    checkIdL = new Label("ì•„ì´ë””ë¥¼ í™•ì¸í•˜ì„¸ìš”", Label.CENTER);
+    checkIdBtn = new Button("í™•ì¸");
 
     checkIdBtn.addActionListener(new ActionListener() {
       @Override
@@ -79,12 +79,12 @@ public class LoginPage extends Frame {
     checkIdD.add(checkIdL);
     checkIdD.add(checkIdBtn);
 
-    // pw¸¦ È®ÀÎÇÏ¼¼¿ä ¸ğ´Ş
+    // pwë¥¼ í™•ì¸í•˜ì„¸ìš” ëª¨ë‹¬
     checkPwD = new Dialog(this, "Info", true);
     checkPwD.setBounds(835, 525, 250, 150);
     checkPwD.setLayout(new FlowLayout());
-    checkPwL = new Label("ºñ¹Ğ¹øÈ£¸¦ È®ÀÎÇÏ¼¼¿ä", Label.CENTER);
-    checkBtn = new Button("È®ÀÎ");
+    checkPwL = new Label("ë¹„ë°€ë²ˆí˜¸ë¥¼ í™•ì¸í•˜ì„¸ìš”", Label.CENTER);
+    checkBtn = new Button("í™•ì¸");
 
     checkBtn.addActionListener(new ActionListener() {
       @Override
@@ -96,32 +96,32 @@ public class LoginPage extends Frame {
     checkPwD.add(checkPwL);
     checkPwD.add(checkBtn);
 
-    // È­¸é Æ² »ı¼º
+    // í™”ë©´ í‹€ ìƒì„±
     this.setBounds(720, 300, 480, 600);
     this.setTitle("Log-in");
     this.setLayout(null);
     font = new Font("", 0, 20);
 
-    // id¿µ¿ª
+    // idì˜ì—­
     tf_id = new TextField();
     tf_id.setBounds(140, 300, 150, 30);
     tf_id.setFont(font);
     this.add(tf_id);
-    idL = new JLabel("¾ÆÀÌµğ :");
+    idL = new JLabel("ì•„ì´ë”” :");
     idL.setBounds(90, 300, 150, 30);
     this.add(idL);
 
-    // pw¿µ¿ª
+    // pwì˜ì—­
     tf_pw = new TextField();
     tf_pw.setEchoChar('*');
     tf_pw.setBounds(140, 350, 150, 30);
     tf_pw.setFont(font);
     this.add(tf_pw);
-    pwL = new JLabel("ÆĞ½º¿öµå :");
+    pwL = new JLabel("íŒ¨ìŠ¤ì›Œë“œ :");
     pwL.setBounds(80, 350, 150, 30);
     this.add(pwL);
 
-    // ·Î±×ÀÎ ¹öÆ°
+    // ë¡œê·¸ì¸ ë²„íŠ¼
     loginBtn = new Button("Log-in");
     loginBtn.setBounds(300, 300, 60, 80);
 
@@ -129,20 +129,20 @@ public class LoginPage extends Frame {
 
       @Override
       public void actionPerformed(ActionEvent e) {
-        // Log-in ¹öÆ° Å¬¸¯½Ã ÁøÇàµÉ ÀÌº¥Æ®
-        // savÆÄÀÏ¿¡¼­ id¸¦ ºñ±³ÇØ¼­ Áßº¹Ã¼Å© ÇÏ°í ºÒ·¯¿À´Â ±â´É
+        // Log-in ë²„íŠ¼ í´ë¦­ì‹œ ì§„í–‰ë  ì´ë²¤íŠ¸
+        // savíŒŒì¼ì—ì„œ idë¥¼ ë¹„êµí•´ì„œ ì¤‘ë³µì²´í¬ í•˜ê³  ë¶ˆëŸ¬ì˜¤ëŠ” ê¸°ëŠ¥
         Load load = new Load();
         cert = load.login(tf_id.getText(), tf_pw.getText());
         verifier = load.getVerifier();
         if (cert.equals("O")) {
-          loginOkD.setVisible(true);// ¸ğ´ŞÃ¢ Ç¥Ãâ
+          loginOkD.setVisible(true);// ëª¨ë‹¬ì°½ í‘œì¶œ
           new MenuPage(verifier);
           setVisible(false);
 
-        } else if (cert.contentEquals("¾ÆÀÌµğ¸¦ È®ÀÎÇØÁÖ¼¼¿ä.")) {
+        } else if (cert.contentEquals("ì•„ì´ë””ë¥¼ í™•ì¸í•´ì£¼ì„¸ìš”.")) {
           checkIdD.setVisible(true);
           return;
-        } else if (cert.equals("ºñ¹Ğ¹øÈ£¸¦ È®ÀÎÇØÁÖ¼¼¿ä.")) {
+        } else if (cert.equals("ë¹„ë°€ë²ˆí˜¸ë¥¼ í™•ì¸í•´ì£¼ì„¸ìš”.")) {
           checkPwD.setVisible(true);
           return;
         }
@@ -151,23 +151,23 @@ public class LoginPage extends Frame {
     });
     this.add(loginBtn);
 
-    // È¸¿ø°¡ÀÔ ¹öÆ°
-    regBtn = new Button("È¸¿ø°¡ÀÔ");
+    // íšŒì›ê°€ì… ë²„íŠ¼
+    regBtn = new Button("íšŒì›ê°€ì…");
     regBtn.setBounds(140, 390, 90, 30);
 
     regBtn.addActionListener(new ActionListener() {
 
       @Override
       public void actionPerformed(ActionEvent e) {
-        // È¸¿ø°¡ÀÔ ¹öÆ° Å¬¸¯½Ã ÁøÇàµÉ ÀÌº¥Æ®
-        // È¸¿ø°¡ÀÔ ÆäÀÌÁö·Î ³Ñ¾î°¡´Â ±â´É
+        // íšŒì›ê°€ì… ë²„íŠ¼ í´ë¦­ì‹œ ì§„í–‰ë  ì´ë²¤íŠ¸
+        // íšŒì›ê°€ì… í˜ì´ì§€ë¡œ ë„˜ì–´ê°€ëŠ” ê¸°ëŠ¥
         new CreateAccountPage().open();
       }
     });
     this.add(regBtn);
 
-    // ÀÓ½Ã¹öÆ°
-//    sampleBtn = new Button("ÀÓ½Ã¹öÆ°");
+    // ì„ì‹œë²„íŠ¼
+//    sampleBtn = new Button("ì„ì‹œë²„íŠ¼");
 //    sampleBtn.setBounds(370, 300, 60, 80);
 //    this.add(sampleBtn);
 //    sampleBtn.addActionListener(new ActionListener() {
@@ -180,9 +180,9 @@ public class LoginPage extends Frame {
 //      }
 //    });
 
-    // CreateAccount ÆäÀÌÁö·Î ³Ñ¾î°¡±â
+    // CreateAccount í˜ì´ì§€ë¡œ ë„˜ì–´ê°€ê¸°
 
-    // ´İ±â¹öÆ°
+    // ë‹«ê¸°ë²„íŠ¼
     this.addWindowListener(new WindowAdapter() {
       @Override
       public void windowClosing(WindowEvent e) {
