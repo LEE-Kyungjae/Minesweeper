@@ -1,6 +1,6 @@
 # Minesweeper
 
-A simple implementation of the classic Minesweeper game in Java. This project is a console-based game that allows users to play Minesweeper by uncovering cells on a grid, avoiding hidden mines, and trying to clear the board.
+A simple implementation of the classic Minesweeper game in Java. This project is a Swing/AWT desktop game (with local accounts, a personal page and a ranking board) that allows users to play Minesweeper by uncovering cells on a grid, avoiding hidden mines, and trying to clear the board.
 
 ## Features
 - **Customizable grid size**: The game allows you to set different grid sizes.
@@ -16,7 +16,7 @@ A simple implementation of the classic Minesweeper game in Java. This project is
 - Win by uncovering all non-mine cells or lose if you uncover a mine.
 
 ## Requirements
-- Java 8 or higher
+- JDK 8 or higher
 
 ## Running the Project
 1. Clone the repository:
@@ -27,20 +27,23 @@ A simple implementation of the classic Minesweeper game in Java. This project is
     ```bash
     cd Minesweeper
     ```
-3. Compile the Java files:
+3. Compile the Java files (sources are UTF-8):
     ```bash
-    javac Minesweeper.java
+    javac -encoding UTF-8 -d bin src/game/*.java
     ```
-4. Run the game:
+4. Run the game from the project root (it loads `img/`, `user/` and `rank/` relative to the working directory):
     ```bash
-    java Minesweeper
+    java -cp bin game.Main
     ```
 
 ## Project Structure
-The project contains the following files:
-- **Minesweeper.java**: The main class for running the game logic.
-- **Board.java**: Handles the game board and cell management.
-- **Cell.java**: Represents individual cells on the board.
+All sources live in the `game` package under `src/game/`:
+- **Main.java**: Entry point; opens the login window.
+- **LoginPage.java / CreateAccountPage.java**: Log-in and sign-up windows.
+- **MenuPage.java / MyPage.java / RankPage.java**: Main menu, personal page and ranking board.
+- **GamePage.java**: The Minesweeper board (mine placement, reveal, flags, win/lose).
+- **Save.java / Load.java / UserInfo.java / UserRank.java**: Serialize accounts to `user/<id>.sav` and rankings to `rank/rank.sav`.
+- **Timer1.java / ResetThread.java / Token.java / HintTextField.java**: Game timer, board reset, login session token and a text field with placeholder text.
 
 ## Contributing
 If you find any bugs or want to add new features, feel free to open an issue or submit a pull request.
