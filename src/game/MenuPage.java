@@ -9,7 +9,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 public class MenuPage extends Frame {
-  private static String verifier = "";// id °¡ »ó½Ã ÀúÀåµÉ ¼ö ÀÖ°Ô ÇÔ
+  private static String verifier = "";// id ê°€ ìƒì‹œ ì €ì¥ë  ìˆ˜ ìˆê²Œ í•¨
 
   public MenuPage() {
 
@@ -17,52 +17,52 @@ public class MenuPage extends Frame {
 
   public MenuPage(String verifier) {
     this.verifier = verifier;
-    // È­¸é Æ² »ı¼º
+    // í™”ë©´ í‹€ ìƒì„±
     this.setBounds(720, 300, 480, 600);
     this.setTitle("MainMenu");
     this.setLayout(null);
     Font font = new Font("", 0, 20);
 
-    // °ÔÀÓ½ÃÀÛ ¹öÆ°
-    Button start_btn = new Button("°ÔÀÓ½ÃÀÛ");
+    // ê²Œì„ì‹œì‘ ë²„íŠ¼
+    Button start_btn = new Button("ê²Œì„ì‹œì‘");
     start_btn.setBounds(180, 260, 120, 40);
     start_btn.addActionListener(new ActionListener() {
 
       @Override
       public void actionPerformed(ActionEvent e) {
-        // mineSweeper»õ·Î ¿­±â
+        // mineSweeperìƒˆë¡œ ì—´ê¸°
         new GamePage(9, 9, 9);
       }
     });
     this.add(start_btn);
 
-    // ¸¶ÀÌÆäÀÌÁö ¹öÆ°
-    Button my_btn = new Button("¸¶ÀÌÆäÀÌÁö");
+    // ë§ˆì´í˜ì´ì§€ ë²„íŠ¼
+    Button my_btn = new Button("ë§ˆì´í˜ì´ì§€");
     my_btn.setBounds(180, 320, 120, 40);
     my_btn.addActionListener(new ActionListener() {
 
       @Override
       public void actionPerformed(ActionEvent e) {
-        // Mypage»õ·Î ¿­±â
+        // Mypageìƒˆë¡œ ì—´ê¸°
         new MyPage(verifier);
       }
     });
     this.add(my_btn);
 
-    // ·©Å·ÆäÀÌÁö ¹öÆ°
-    Button rank_btn = new Button("·©Å·");
+    // ë­í‚¹í˜ì´ì§€ ë²„íŠ¼
+    Button rank_btn = new Button("ë­í‚¹");
     rank_btn.setBounds(180, 380, 120, 40);
     rank_btn.addActionListener(new ActionListener() {
 
       @Override
       public void actionPerformed(ActionEvent e) {
-        // Rank_page»õ·Î ¿­±â
+        // Rank_pageìƒˆë¡œ ì—´ê¸°
         new RankPage(verifier);
       }
     });
     this.add(rank_btn);
 
-    // ´İ±â ¹öÆ°
+    // ë‹«ê¸° ë²„íŠ¼
     this.addWindowListener(new WindowAdapter() {
       @Override
       public void windowClosing(WindowEvent e) {

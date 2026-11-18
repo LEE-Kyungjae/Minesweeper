@@ -20,33 +20,33 @@ public class Load {
     FileInputStream fis = null;
     ObjectInputStream ois = null;
 
-    // ·Î±×ÀÎ ÇÊµå¿¡¼­ ¹Ş¾Æ¾ßÇÒ º¯¼ö
+    // ë¡œê·¸ì¸ í•„ë“œì—ì„œ ë°›ì•„ì•¼í•  ë³€ìˆ˜
     this.id = id;
     this.pw = pw;
 
-    // ¿ÜºÎÆÄÀÏ°æ·Î
+    // ì™¸ë¶€íŒŒì¼ê²½ë¡œ
     String filePath = (System.getProperty("user.dir") + "/user/" + id + ".sav").replace("\\", "/");
     File f = new File(filePath);
 
-    if (!f.exists()) {// ¾ÆÀÌµğ Á¸Àç ¿©ºÎ È®ÀÎ
-      System.out.println("¾ÆÀÌµğ¸¦ È®ÀÎÇØÁÖ¼¼¿ä.");
-      return "¾ÆÀÌµğ¸¦ È®ÀÎÇØÁÖ¼¼¿ä.";
+    if (!f.exists()) {// ì•„ì´ë”” ì¡´ì¬ ì—¬ë¶€ í™•ì¸
+      System.out.println("ì•„ì´ë””ë¥¼ í™•ì¸í•´ì£¼ì„¸ìš”.");
+      return "ì•„ì´ë””ë¥¼ í™•ì¸í•´ì£¼ì„¸ìš”.";
     }
 
-    // ÆÄÀÏ ½ºÆ®¸² °´Ã¼ »ı¼º
+    // íŒŒì¼ ìŠ¤íŠ¸ë¦¼ ê°ì²´ ìƒì„±
     try {
 
       fis = new FileInputStream(filePath);
       ois = new ObjectInputStream(fis);
 
-      // ¹ÙÀÌÆ® ½ºÆ®¸²À» ´Ù½Ã ÀÚ¹Ù °´Ã¼·Î º¯È¯
+      // ë°”ì´íŠ¸ ìŠ¤íŠ¸ë¦¼ì„ ë‹¤ì‹œ ìë°” ê°ì²´ë¡œ ë³€í™˜
       userInfo = (UserInfo) ois.readObject();
 
       System.out.println(userInfo);
 
     } catch (Exception e) {
       // TODO: handle exception
-      System.out.println("¿À·ù¹ß»ı");
+      System.out.println("ì˜¤ë¥˜ë°œìƒ");
     } finally {
       try {
         ois.close();
@@ -56,46 +56,46 @@ public class Load {
       }
     }
 
-    if (!pw.equals(userInfo.getPw())) {// ºÒ·¯¿Â °èÁ¤Á¤º¸¿¡¼­ ºñ¹Ğ¹øÈ£ ÀÏÄ¡¿©ºÎ È®ÀÎ
-      System.out.println("ºñ¹Ğ¹øÈ£¸¦ È®ÀÎÇØÁÖ¼¼¿ä.");
-      return "ºñ¹Ğ¹øÈ£¸¦ È®ÀÎÇØÁÖ¼¼¿ä.";
+    if (!pw.equals(userInfo.getPw())) {// ë¶ˆëŸ¬ì˜¨ ê³„ì •ì •ë³´ì—ì„œ ë¹„ë°€ë²ˆí˜¸ ì¼ì¹˜ì—¬ë¶€ í™•ì¸
+      System.out.println("ë¹„ë°€ë²ˆí˜¸ë¥¼ í™•ì¸í•´ì£¼ì„¸ìš”.");
+      return "ë¹„ë°€ë²ˆí˜¸ë¥¼ í™•ì¸í•´ì£¼ì„¸ìš”.";
     }
-    // ÅäÅ©³ªÀÌÁî
+    // í† í¬ë‚˜ì´ì¦ˆ
     Token t = new Token();
-    // ·Î±×ÀÎ¼º°ø¿©ºÎ, ÆĞ½º¿öµå,ÀÌ¸§, ¾ÆÀÌµğ,ÀÌ¸ŞÀÏ
+    // ë¡œê·¸ì¸ì„±ê³µì—¬ë¶€, íŒ¨ìŠ¤ì›Œë“œ,ì´ë¦„, ì•„ì´ë””,ì´ë©”ì¼
     verifier = t.push("O", userInfo.getPw().length(), userInfo.getName(), userInfo.getId(), userInfo.getEmail());
     LoginPage lP = new LoginPage();
     lP.setVerifier(verifier);
-    System.out.println("·Î±×ÀÎ ¼º°ø");
+    System.out.println("ë¡œê·¸ì¸ ì„±ê³µ");
 
     return t.pull(verifier)[0];
 
   }// login
 
-  public UserInfo load(String id) {// UserInfo¿¡ µ¥ÀÌÅÍ¸¦ ÀúÀå
+  public UserInfo load(String id) {// UserInfoì— ë°ì´í„°ë¥¼ ì €ì¥
     UserInfo userInfo = null;
     FileInputStream fis = null;
     ObjectInputStream ois = null;
 
-    // ·Î±×ÀÎ ÇÊµå¿¡¼­ ¹Ş¾Æ¾ßÇÒ º¯¼ö
+    // ë¡œê·¸ì¸ í•„ë“œì—ì„œ ë°›ì•„ì•¼í•  ë³€ìˆ˜
     this.id = id;
 
-    // ¿ÜºÎÆÄÀÏ°æ·Î
+    // ì™¸ë¶€íŒŒì¼ê²½ë¡œ
     String filePath = (System.getProperty("user.dir") + "/user/" + id + ".sav").replace("\\", "/");
     File f = new File(filePath);
 
-    // ÆÄÀÏ ½ºÆ®¸² °´Ã¼ »ı¼º
+    // íŒŒì¼ ìŠ¤íŠ¸ë¦¼ ê°ì²´ ìƒì„±
     try {
 
       fis = new FileInputStream(filePath);
       ois = new ObjectInputStream(fis);
 
-      // ¹ÙÀÌÆ® ½ºÆ®¸²À» ´Ù½Ã ÀÚ¹Ù °´Ã¼·Î º¯È¯
+      // ë°”ì´íŠ¸ ìŠ¤íŠ¸ë¦¼ì„ ë‹¤ì‹œ ìë°” ê°ì²´ë¡œ ë³€í™˜
       userInfo = (UserInfo) ois.readObject();
 
     } catch (Exception e) {
       // TODO: handle exception
-      System.out.println("¿À·ù¹ß»ı");
+      System.out.println("ì˜¤ë¥˜ë°œìƒ");
     } finally {
       try {
         ois.close();
@@ -117,18 +117,18 @@ public class Load {
     String filePath = (System.getProperty("user.dir") + "/rank/rank.sav").replace("\\", "/");
     File f = new File(filePath);
 
-    // ÆÄÀÏ½ºÆ®¸² °´Ã¼ »ı¼º
+    // íŒŒì¼ìŠ¤íŠ¸ë¦¼ ê°ì²´ ìƒì„±
     try {
 
       fis = new FileInputStream(filePath);
       ois = new ObjectInputStream(fis);
 
-      // ¹ÙÀÌÆ® ½ºÆ®¸²À» ´Ù½Ã ÀÚ¹Ù °´Ã¼·Î º¯È¯
+      // ë°”ì´íŠ¸ ìŠ¤íŠ¸ë¦¼ì„ ë‹¤ì‹œ ìë°” ê°ì²´ë¡œ ë³€í™˜
       userRank = (UserRank) ois.readObject();
 
     } catch (Exception e) {
       // TODO: handle exception
-      System.out.println("¿À·ù¹ß»ı");
+      System.out.println("ì˜¤ë¥˜ë°œìƒ");
     } finally {
       try {
         ois.close();

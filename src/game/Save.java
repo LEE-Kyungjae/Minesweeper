@@ -19,34 +19,34 @@ public class Save {
 		FileOutputStream fos = null;
 		ObjectOutputStream oos = null;
 		
-		//°èÁ¤»ı¼ºÇÊµå¿¡¼­ ¹Ş¾Æ¾ß ÇÒ º¯¼ö
+		//ê³„ì •ìƒì„±í•„ë“œì—ì„œ ë°›ì•„ì•¼ í•  ë³€ìˆ˜
 		this.id = id;
 		this.name = name;
 		this.pw = pw;
 		this.email = email;
 		
-		//Á÷·ÄÈ­ÇÒ »ç¿ëÀÚ°´Ã¼
+		//ì§ë ¬í™”í•  ì‚¬ìš©ìê°ì²´
 		UserInfo userInfo = new UserInfo(id, name, pw, email);
 		
-		//¿ÜºÎÆÄÀÏ°æ·Î »ı¼º
-		//String filePath = "C:/Program Files/JavaPjt/" + id + ".sav"; //ÆÄÀÏ»ı¼º¿ë
-		//String dir = "C:/Program Files/JavaPjt/";//µğ·ºÅä¸® »ı¼º¿ë
-		String filePath = (System.getProperty("user.dir")+ "/user/" + id + ".sav").replace("\\", "/"); //ÆÄÀÏ»ı¼º¿ë
+		//ì™¸ë¶€íŒŒì¼ê²½ë¡œ ìƒì„±
+		//String filePath = "C:/Program Files/JavaPjt/" + id + ".sav"; //íŒŒì¼ìƒì„±ìš©
+		//String dir = "C:/Program Files/JavaPjt/";//ë””ë ‰í† ë¦¬ ìƒì„±ìš©
+		String filePath = (System.getProperty("user.dir")+ "/user/" + id + ".sav").replace("\\", "/"); //íŒŒì¼ìƒì„±ìš©
 		String dir = (System.getProperty("user.dir") + "/user/").replace("\\", "/");
 		
 		f = new File(dir);
 		
-		if(!f.exists()) {//µğ·ºÅä¸® »ı¼º
+		if(!f.exists()) {//ë””ë ‰í† ë¦¬ ìƒì„±
 			f.mkdirs();
 		}
 		
-		//ÆÄÀÏ ½ºÆ®¸² °´Ã¼ »ı¼º (try with resource)
+		//íŒŒì¼ ìŠ¤íŠ¸ë¦¼ ê°ì²´ ìƒì„± (try with resource)
 		try {
 			
 			fos = new FileOutputStream(filePath);
 			oos = new ObjectOutputStream(fos);
 			
-			// Á÷·ÄÈ­ °¡´É °´Ã¼¸¦ ¹ÙÀÌÆ® ½ºÆ®¸²À¸·Î º¯È¯ÇÏ°í ÆÄÀÏ¿¡ ÀúÀå
+			// ì§ë ¬í™” ê°€ëŠ¥ ê°ì²´ë¥¼ ë°”ì´íŠ¸ ìŠ¤íŠ¸ë¦¼ìœ¼ë¡œ ë³€í™˜í•˜ê³  íŒŒì¼ì— ì €ì¥
 			oos.writeObject(userInfo);
 			
 		} catch (Exception e) {
@@ -67,30 +67,30 @@ public class Save {
 		FileOutputStream fos = null;
 		ObjectOutputStream oos = null;
 		
-		//Á÷·ÄÈ­ÇÒ ·©Å©¹è¿­ °´Ã¼
+		//ì§ë ¬í™”í•  ë­í¬ë°°ì—´ ê°ì²´
 		UserRank userRank = new UserRank();
 		
-		//ÆÄÀÏ ·Îµå °´Ã¼
+		//íŒŒì¼ ë¡œë“œ ê°ì²´
 		Load load = new Load();
 		
-		//·ÎµåÇÑ ¸®½ºÆ®¿¡ ³»¿ëÃß°¡ÇÏ¿© ÀÓ½Ã ÀúÀåÇÒ º¯¼ö
+		//ë¡œë“œí•œ ë¦¬ìŠ¤íŠ¸ì— ë‚´ìš©ì¶”ê°€í•˜ì—¬ ì„ì‹œ ì €ì¥í•  ë³€ìˆ˜
 		List<Integer> temp_rec = new ArrayList<Integer>();
 		List<String> temp_id = new ArrayList<String>();
 		
-		//±âÁ¸ ·©Å·À» ºÒ·¯¿Í ¼øÀ§´ë·Î ±â·Ï Ãß°¡ ÀúÀå
+		//ê¸°ì¡´ ë­í‚¹ì„ ë¶ˆëŸ¬ì™€ ìˆœìœ„ëŒ€ë¡œ ê¸°ë¡ ì¶”ê°€ ì €ì¥
 
 		String filePath = (System.getProperty("user.dir") + "/rank/rank.sav").replace("\\", "/");
 		String dir = (System.getProperty("user.dir") + "/rank/").replace("\\", "/");
 		
 		f = new File(dir);
 		
-		if(!f.exists()) {//µğ·ºÅä¸® »ı¼º, Ã¹ ÆÄÀÏ »ı¼º
+		if(!f.exists()) {//ë””ë ‰í† ë¦¬ ìƒì„±, ì²« íŒŒì¼ ìƒì„±
 			f.mkdirs();
 			temp_rec.add(rec);
 			temp_id.add(id);
 			
-		}else {//±âÁ¸ ÆÄÀÏÀÌ ÀÖÀ» °æ¿ì
-			int rank = 0;//À¯Àú ·©Å© ÀÎµ¦½º
+		}else {//ê¸°ì¡´ íŒŒì¼ì´ ìˆì„ ê²½ìš°
+			int rank = 0;//ìœ ì € ë­í¬ ì¸ë±ìŠ¤
 			temp_rec = load.rank_load().getRec_list();
 			temp_id = load.rank_load().getId_list();
 			
@@ -112,7 +112,7 @@ public class Save {
 					
 			}//for
 			
-			//ÀúÀåµÈ ¼øÀ§¸¦ ÇöÀç ¾ÆÀÌµğ¿Í ¿¬°á
+			//ì €ì¥ëœ ìˆœìœ„ë¥¼ í˜„ì¬ ì•„ì´ë””ì™€ ì—°ê²°
 			temp_id.add(rank, id);
 
 		}
@@ -120,15 +120,15 @@ public class Save {
 		userRank.setRec_list(temp_rec);
 		userRank.setId_list(temp_id);
 		
-		//ÆÄÀÏ ½ºÆ®¸² °´Ã¼ »ı¼º (try with resource)
+		//íŒŒì¼ ìŠ¤íŠ¸ë¦¼ ê°ì²´ ìƒì„± (try with resource)
 		try {
 			
 			fos = new FileOutputStream(filePath);
 			oos = new ObjectOutputStream(fos);
 			
-			// Á÷·ÄÈ­ °¡´É °´Ã¼¸¦ ¹ÙÀÌÆ® ½ºÆ®¸²À¸·Î º¯È¯ÇÏ°í ÆÄÀÏ¿¡ ÀúÀå
+			// ì§ë ¬í™” ê°€ëŠ¥ ê°ì²´ë¥¼ ë°”ì´íŠ¸ ìŠ¤íŠ¸ë¦¼ìœ¼ë¡œ ë³€í™˜í•˜ê³  íŒŒì¼ì— ì €ì¥
 			oos.writeObject(userRank);
-			System.out.println("ºÒ·¯¿À±â/ÀúÀå ¼º°ø");
+			System.out.println("ë¶ˆëŸ¬ì˜¤ê¸°/ì €ì¥ ì„±ê³µ");
 			
 		} catch (Exception e) {
 			// TODO: handle exception

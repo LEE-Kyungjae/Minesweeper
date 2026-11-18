@@ -16,9 +16,9 @@ public class RankPage extends Frame {
 
   public RankPage(String verifier) {
 
-    Load lo = new Load();// ÀÌ¸§, Á¡¼ö Á¤º¸ ÀĞ¾î¿À±â¿ë
-    // Save, Load¿¡ ·©Å·¿ë savÆÄÀÏ ÀúÀåÇÏ°í ºÒ·¯¿À´Â ±â´É Ãß°¡
-    // ÇØ´ç ÆÄÀÏÀº °ÔÀÓ ³¡³ª°í »óÈ£ÀÛ¿ë, ÀÌ¸§/Á¡¼ö ¸ÅÄ¡ÇÏ¿© ÀúÀå
+    Load lo = new Load();// ì´ë¦„, ì ìˆ˜ ì •ë³´ ì½ì–´ì˜¤ê¸°ìš©
+    // Save, Loadì— ë­í‚¹ìš© savíŒŒì¼ ì €ì¥í•˜ê³  ë¶ˆëŸ¬ì˜¤ëŠ” ê¸°ëŠ¥ ì¶”ê°€
+    // í•´ë‹¹ íŒŒì¼ì€ ê²Œì„ ëë‚˜ê³  ìƒí˜¸ì‘ìš©, ì´ë¦„/ì ìˆ˜ ë§¤ì¹˜í•˜ì—¬ ì €ì¥
     
     String[] arr = new String[5];
     
@@ -31,10 +31,10 @@ public class RankPage extends Frame {
     if(!f.exists()) {
     	
         Dialog emptyFileD = new Dialog(this, "Info", true);
-        Button emptyFileBtn = new Button("È®ÀÎ");
+        Button emptyFileBtn = new Button("í™•ì¸");
         emptyFileD.setBounds(835, 525, 250, 150);
         emptyFileD.setLayout(new FlowLayout());
-        Label emptyFileL = new Label("ÀúÀåµÈ ±â·ÏÀÌ ¾ø½À´Ï´Ù!", Label.CENTER);
+        Label emptyFileL = new Label("ì €ì¥ëœ ê¸°ë¡ì´ ì—†ìŠµë‹ˆë‹¤!", Label.CENTER);
 
         emptyFileBtn.addActionListener(new ActionListener() {
           @Override
@@ -56,57 +56,57 @@ public class RankPage extends Frame {
 
           } // for
 
-          // ÆäÀÌÁö Æ²
+          // í˜ì´ì§€ í‹€
           this.setBounds(720, 300, 480, 600);
           this.setTitle("Rank");
           this.setLayout(null);
           Font font = new Font("", 0, 25);
 
-          // ¼øÀ§°¡ Ç¥½ÃµÉ ±¸¿ª
-          Label l_1th = new Label("1À§");
+          // ìˆœìœ„ê°€ í‘œì‹œë  êµ¬ì—­
+          Label l_1th = new Label("1ìœ„");
           l_1th.setBounds(30, 120, 60, 30);
           l_1th.setFont(font);
           l_1th.setVisible(true);
           this.add(l_1th);
 
-          Label l_2th = new Label("2À§");
+          Label l_2th = new Label("2ìœ„");
           l_2th.setBounds(30, 190, 60, 30);
           l_2th.setFont(font);
           l_2th.setVisible(true);
           this.add(l_2th);
 
-          Label l_3th = new Label("3À§");
+          Label l_3th = new Label("3ìœ„");
           l_3th.setBounds(30, 260, 60, 30);
           l_3th.setFont(font);
           l_3th.setVisible(true);
           this.add(l_3th);
 
-          Label l_4th = new Label("4À§");
+          Label l_4th = new Label("4ìœ„");
           l_4th.setBounds(30, 330, 60, 30);
           l_4th.setFont(font);
           l_4th.setVisible(true);
           this.add(l_4th);
 
-          Label l_5th = new Label("5À§");
+          Label l_5th = new Label("5ìœ„");
           l_5th.setBounds(30, 400, 60, 30);
           l_5th.setFont(font);
           l_5th.setVisible(true);
           this.add(l_5th);
 
-          // id/±â·ÏÀÌ Ç¥½ÃµÉ ±¸¿ª
-          Label top_rank = new Label("¼øÀ§");// id °¡Á®¿À±â
+          // id/ê¸°ë¡ì´ í‘œì‹œë  êµ¬ì—­
+          Label top_rank = new Label("ìˆœìœ„");// id ê°€ì ¸ì˜¤ê¸°
           top_rank.setBounds(30, 70, 60, 30);
           top_rank.setFont(font);
           top_rank.setVisible(true);
           this.add(top_rank);
 
-          Label top_id = new Label("id");// id °¡Á®¿À±â
+          Label top_id = new Label("id");// id ê°€ì ¸ì˜¤ê¸°
           top_id.setBounds(110, 70, 100, 30);
           top_id.setFont(font);
           top_id.setVisible(true);
           this.add(top_id);
 
-          Label top_rec = new Label("Å¬¸®¾îÅ¸ÀÓ");// rec °¡Á®¿À±â
+          Label top_rec = new Label("í´ë¦¬ì–´íƒ€ì„");// rec ê°€ì ¸ì˜¤ê¸°
           top_rec.setBounds(230, 70, 140, 30);
           top_rec.setFont(font);
           top_rec.setVisible(true);
@@ -114,61 +114,61 @@ public class RankPage extends Frame {
 
           try {
 
-            Label l_id1 = new Label(lo.rank_load().getId_list().get(0));// id °¡Á®¿À±â
+            Label l_id1 = new Label(lo.rank_load().getId_list().get(0));// id ê°€ì ¸ì˜¤ê¸°
             l_id1.setBounds(110, 120, 100, 30);
             l_id1.setFont(font);
             l_id1.setVisible(true);
             this.add(l_id1);
 
-            Label l_rec1 = new Label(lo.rank_load().getRec_list().get(0).toString() + "ÃÊ");// rec °¡Á®¿À±â
+            Label l_rec1 = new Label(lo.rank_load().getRec_list().get(0).toString() + "ì´ˆ");// rec ê°€ì ¸ì˜¤ê¸°
             l_rec1.setBounds(230, 120, 100, 30);
             l_rec1.setFont(font);
             l_rec1.setVisible(true);
             this.add(l_rec1);
 
-            Label l_id2 = new Label(lo.rank_load().getId_list().get(1));// id °¡Á®¿À±â
+            Label l_id2 = new Label(lo.rank_load().getId_list().get(1));// id ê°€ì ¸ì˜¤ê¸°
             l_id2.setBounds(110, 190, 100, 30);
             l_id2.setFont(font);
             l_id2.setVisible(true);
             this.add(l_id2);
 
-            Label l_rec2 = new Label(lo.rank_load().getRec_list().get(1).toString() + "ÃÊ");// rec °¡Á®¿À±â
+            Label l_rec2 = new Label(lo.rank_load().getRec_list().get(1).toString() + "ì´ˆ");// rec ê°€ì ¸ì˜¤ê¸°
             l_rec2.setBounds(230, 190, 100, 30);
             l_rec2.setFont(font);
             l_rec2.setVisible(true);
             this.add(l_rec2);
 
-            Label l_id3 = new Label(lo.rank_load().getId_list().get(2));// id °¡Á®¿À±â
+            Label l_id3 = new Label(lo.rank_load().getId_list().get(2));// id ê°€ì ¸ì˜¤ê¸°
             l_id3.setBounds(110, 260, 100, 30);
             l_id3.setFont(font);
             l_id3.setVisible(true);
             this.add(l_id3);
 
-            Label l_rec3 = new Label(lo.rank_load().getRec_list().get(2).toString() + "ÃÊ");// rec °¡Á®¿À±â
+            Label l_rec3 = new Label(lo.rank_load().getRec_list().get(2).toString() + "ì´ˆ");// rec ê°€ì ¸ì˜¤ê¸°
             l_rec3.setBounds(230, 260, 100, 30);
             l_rec3.setFont(font);
             l_rec3.setVisible(true);
             this.add(l_rec3);
 
-            Label l_id4 = new Label(lo.rank_load().getId_list().get(3));// id °¡Á®¿À±â
+            Label l_id4 = new Label(lo.rank_load().getId_list().get(3));// id ê°€ì ¸ì˜¤ê¸°
             l_id4.setBounds(110, 330, 100, 30);
             l_id4.setFont(font);
             l_id4.setVisible(true);
             this.add(l_id4);
 
-            Label l_rec4 = new Label(lo.rank_load().getRec_list().get(3).toString() + "ÃÊ");// rec °¡Á®¿À±â
+            Label l_rec4 = new Label(lo.rank_load().getRec_list().get(3).toString() + "ì´ˆ");// rec ê°€ì ¸ì˜¤ê¸°
             l_rec4.setBounds(230, 330, 100, 30);
             l_rec4.setFont(font);
             l_rec4.setVisible(true);
             this.add(l_rec4);
 
-            Label l_id5 = new Label(lo.rank_load().getId_list().get(4));// id °¡Á®¿À±â
+            Label l_id5 = new Label(lo.rank_load().getId_list().get(4));// id ê°€ì ¸ì˜¤ê¸°
             l_id5.setBounds(110, 400, 100, 30);
             l_id5.setFont(font);
             l_id5.setVisible(true);
             this.add(l_id5);
 
-            Label l_rec5 = new Label(lo.rank_load().getRec_list().get(4).toString() + "ÃÊ");// rec °¡Á®¿À±â
+            Label l_rec5 = new Label(lo.rank_load().getRec_list().get(4).toString() + "ì´ˆ");// rec ê°€ì ¸ì˜¤ê¸°
             l_rec5.setBounds(230, 400, 100, 30);
             l_rec5.setFont(font);
             l_rec5.setVisible(true);
@@ -178,7 +178,7 @@ public class RankPage extends Frame {
             // TODO: handle exception
           }
 
-          // ´İ±â ¹öÆ°
+          // ë‹«ê¸° ë²„íŠ¼
           this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
